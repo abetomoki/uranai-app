@@ -1,0 +1,11 @@
+# Dockerfile.custom
+FROM laravelsail/php80-composer
+
+ARG UID=503
+ARG GID=20
+
+RUN groupadd -g $GID sail && \
+    useradd -u $UID -g sail -m sail
+
+USER sail
+

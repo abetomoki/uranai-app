@@ -1,0 +1,14 @@
+# 新規テーブル追加のマイグレーション
+php artisan make:migration create_seller_review_table --create=seller_review
+
+# モデル作成
+php artisan make:model SellerReview
+
+# Adminコントローラー追加（ローカル上で）
+./vendor/bin/sail artisan admin:make SellerReviewController --model=App\\Models\\SellerReview
+
+# カラム追加のマイグレーション
+php artisan make:migration seller_review__table --table=seller_review
+
+# マイグレーション実行（ローカル上で）
+ ./vendor/bin/sail artisan migrate
